@@ -1,0 +1,19 @@
+<div style="display:inline-block">
+<h3 style="margin-bottom: 20px"><%= Spree.t(:recently_bought_items) %></h3>
+<% if @recently_bought_products.present? %>
+  <ul class="recently_bought_products">
+          <% @recently_bought_products.take( Rails.application.config.respond_to?(:list_size_spree_recently_bought) ? Rails.application.config.list_size_spree_recently_bought  : 6).each do |product|%>
+
+       <% if product.present? %>
+          <li style="float:left; padding:15px">
+            <%= link_to image_tag(product.display_image.attachment(:small), :itemprop => "image"), product, :itemprop => 'url' %>
+            <%= link_to truncate(product.name, :length => 50), product, :class => 'info display-block', :itemprop => "name", :title => product.name %>
+
+           </li>
+        <% end %>
+
+     <% end %>
+  </ul>
+<% end %>
+</div>
+<br/>
