@@ -1,9 +1,7 @@
-Spree::UsersController.class_eval  do
-
-  alias_method  :old_show, :show
+Spree::UsersController.prepend(Module.new do
 
   def show
-    old_show
+    super
     load_recently_bought_products
   end
 
