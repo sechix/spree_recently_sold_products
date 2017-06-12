@@ -1,10 +1,9 @@
 Spree::UsersController.class_eval  do
 
-
+  alias :old_show :show
   def show
-    super
+    old_show
     load_recently_bought_products
-    
   end
 
   private
