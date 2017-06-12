@@ -1,6 +1,7 @@
 Spree::UsersController.class_eval  do
 
-  alias :old_show :show
+  alias_method  :old_show, :show
+
   def show
     old_show
     load_recently_bought_products
