@@ -12,4 +12,4 @@ Spree::UsersController.prepend(Module.new do
     end
 
 
-end
+end)
